@@ -1,0 +1,40 @@
+epochs: 5000
+log_every: 10
+ckpt_every: 5000
+accumulation_steps: 1
+lr: 1e-4
+
+results_dir: "./results/OCT6AP-mam-test"
+model:  "CPGMD-B/2"
+
+image_size: 224
+global_batch_size: 8
+global_seed: 0
+vae: "ema"
+num_workers: 2
+oct_ckpt: "results_test_mam-6m/000-oct_encoder/checkpoints/0000500.pt"
+dt_rank: 16
+d_state: 16
+
+init_from_pretrain_ckpt: False
+pretrain_ckpt_path: "/home/project_dir/Mamba-main/results/brain/B-2/checkpoints/0060000.pt"
+init_train_steps:  60000
+lr_: 1e-4
+
+ckpt: './results/OCTAP6M/B-2/checkpoints/0210000.pt'
+save_dir: "./result_sample/6mAP-mam-test-112222333/"
+seed: 0
+sample_global_batch_size: 1
+sample_num_steps: 250
+sample_num_workers: 4
+load_ckpt_type: "ema"
+
+#train embedder
+embedder_epoch: 10000 #100
+embedder_ckpt_every: 500
+embedder_num_workers: 8
+embedder_global_seed: 0
+embedder_global_batch_size: 64
+embedder_embed_dim: 512
+embedder_patch_size: 2
+embedder_results_dir: './results_test_mam-6m'
